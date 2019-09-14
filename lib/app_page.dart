@@ -22,8 +22,28 @@ class _AppPageState extends State<AppPage> {
                     borderRadius: BorderRadius.circular(8.0),
                     color: Colors.grey[800],
                   ),
-                  child: Text(
-                    'Input Area',
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          '5+5',
+                          style: TextStyle(
+                            fontSize: 50.0,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                        Text(
+                          '0',
+                          style: TextStyle(
+                            fontSize: 70.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
