@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'app_page.dart';
 
 void main() => runApp(App());
 
@@ -9,9 +10,7 @@ class App extends StatelessWidget {
       theme: ThemeData.dark(),
       title: 'Calcify',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Calcify'),
-        ),
+        body: AppPage(),
       ),
     );
   }
