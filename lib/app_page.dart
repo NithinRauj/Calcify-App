@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'number_button_widget.dart';
+import 'operator_button_widget.dart';
+import 'equals_button_widget.dart';
+import 'functionality.dart';
 
 class AppPage extends StatefulWidget {
   @override
@@ -8,8 +12,9 @@ class AppPage extends StatefulWidget {
 
 class _AppPageState extends State<AppPage> {
   String userInput = '';
-  int num1 = 0, num2 = 0;
-  String operator = '';
+  String outputString = '0';
+  static double num1 = 0, num2 = 0;
+  static String operators = '';
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +47,7 @@ class _AppPageState extends State<AppPage> {
                           ),
                         ),
                         Text(
-                          '0',
+                          outputString,
                           style: TextStyle(
                             fontSize: 70.0,
                             fontWeight: FontWeight.w600,
@@ -77,10 +82,9 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                num1 = int.parse(userInput);
-                                userInput = '$num1 +';
-                                operator = '+';
-                                print('num1= $num1');
+                                num1 = double.parse(userInput);
+                                userInput = '';
+                                operators = '+';
                               });
                             },
                           ),
@@ -89,10 +93,9 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                num1 = int.parse(userInput);
-                                userInput = '$num1 -';
-                                operator = '-';
-                                print('num1= $num1');
+                                num1 = double.parse(userInput);
+                                userInput = '';
+                                operators = '-';
                               });
                             },
                           ),
@@ -101,10 +104,9 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                num1 = int.parse(userInput);
-                                userInput = '$num1 x';
-                                operator = 'x';
-                                print('num1= $num1');
+                                num1 = double.parse(userInput);
+                                userInput = '';
+                                operators = 'x';
                               });
                             },
                           ),
@@ -113,10 +115,9 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                num1 = int.parse(userInput);
-                                userInput = '$num1 /';
-                                operator = '/';
-                                print('num1= $num1');
+                                num1 = double.parse(userInput);
+                                userInput = '';
+                                operators = '/';
                               });
                             },
                           ),
@@ -221,9 +222,9 @@ class _AppPageState extends State<AppPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          OperatorButtonWidget(
+                          EqualsButtonWidget(
                             operator: FontAwesomeIcons.backspace,
-                            buttonColor: Colors.grey[800],
+                            buttonColor: Colors.greenAccent,
                           ),
                           NumberButtonWidget(
                             label: '0',
@@ -234,9 +235,23 @@ class _AppPageState extends State<AppPage> {
                               });
                             },
                           ),
-                          OperatorButtonWidget(
+                          EqualsButtonWidget(
                             operator: FontAwesomeIcons.equals,
                             buttonColor: Colors.redAccent,
+                            calculationFunction: () {
+                              setState(() {
+                                num2 = double.parse(userInput);
+                                userInput = '$num1 $operators $num2';
+                                Functionality functionality = Functionality(
+                                    operand1: num1,
+                                    operand2: num2,
+                                    operator: operators);
+                                double result =
+                                    functionality.calculateFunction();
+                                print('result= $result');
+                                outputString = result.toString();
+                              });
+                            },
                           )
                         ],
                       ),
@@ -246,67 +261,6 @@ class _AppPageState extends State<AppPage> {
               ),
             ),
           ]),
-    );
-  }
-}
-
-class NumberButtonWidget extends StatelessWidget {
-  final String label;
-  final Color buttonColor;
-  final Function displayOperandFunction;
-
-  NumberButtonWidget(
-      {@required this.label, this.buttonColor, this.displayOperandFunction});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FlatButton(
-          onPressed: displayOperandFunction,
-          color: buttonColor,
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 40.0,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class OperatorButtonWidget extends StatelessWidget {
-  final IconData operator;
-  final Color buttonColor;
-  final Function defineOperationFunction;
-
-  OperatorButtonWidget(
-      {@required this.operator,
-      this.buttonColor,
-      this.defineOperationFunction});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: FlatButton(
-          onPressed: defineOperationFunction,
-          color: buttonColor,
-          child: Container(
-            width: 55.0,
-            height: 55.0,
-            child: Icon(
-              operator,
-              size: 35.0,
-            ),
-          ),
-        ),
-      ),
     );
   }
 }
