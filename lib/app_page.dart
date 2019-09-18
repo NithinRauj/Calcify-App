@@ -85,9 +85,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                isOperand1Assigned = true;
-                                userInput = '';
-                                operatorChoice = '+';
+                                defineOperation('+');
                               });
                             },
                           ),
@@ -96,9 +94,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                isOperand1Assigned = true;
-                                userInput = '';
-                                operatorChoice = '-';
+                                defineOperation('-');
                               });
                             },
                           ),
@@ -107,9 +103,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                isOperand1Assigned = true;
-                                userInput = '';
-                                operatorChoice = 'x';
+                                defineOperation('*');
                               });
                             },
                           ),
@@ -118,9 +112,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                isOperand1Assigned = true;
-                                userInput = '';
-                                operatorChoice = '/';
+                                defineOperation('/');
                               });
                             },
                           ),
@@ -134,16 +126,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '1';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('1');
                               });
                             },
                           ),
@@ -152,16 +135,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '2';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('2');
                               });
                             },
                           ),
@@ -170,16 +144,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '3';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('3');
                               });
                             },
                           ),
@@ -193,16 +158,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '4';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('4');
                               });
                             },
                           ),
@@ -211,16 +167,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '5';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('5');
                               });
                             },
                           ),
@@ -229,16 +176,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '6';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('6');
                               });
                             },
                           ),
@@ -252,16 +190,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '7';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('7');
                               });
                             },
                           ),
@@ -270,16 +199,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '8';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('8');
                               });
                             },
                           ),
@@ -288,16 +208,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '9';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('9');
                               });
                             },
                           ),
@@ -325,16 +236,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
-                                if (!isUserInputReseted) {
-                                  userInput = '';
-                                  isUserInputReseted = true;
-                                }
-                                userInput += '0';
-                                if (!isOperand1Assigned) {
-                                  operand1 = double.parse(userInput);
-                                } else {
-                                  operand2 = double.parse(userInput);
-                                }
+                                setOperand('0');
                               });
                             },
                           ),
@@ -352,7 +254,7 @@ class _AppPageState extends State<AppPage> {
                                 double result =
                                     functionality.calculateFunction();
                                 print('result= $result');
-                                outputString = result.toString();
+                                outputString = result.toStringAsFixed(3);
                                 isOperand1Assigned = false;
                                 isUserInputReseted = false;
                                 result = 0.0;
@@ -370,5 +272,24 @@ class _AppPageState extends State<AppPage> {
             ),
           ]),
     );
+  }
+
+  void defineOperation(String operator) {
+    isOperand1Assigned = true;
+    userInput = '';
+    operatorChoice = operator;
+  }
+
+  void setOperand(String input) {
+    if (!isUserInputReseted) {
+      userInput = '';
+      isUserInputReseted = true;
+    }
+    userInput += input;
+    if (!isOperand1Assigned) {
+      operand1 = double.parse(userInput);
+    } else {
+      operand2 = double.parse(userInput);
+    }
   }
 }

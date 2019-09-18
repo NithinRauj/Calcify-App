@@ -13,7 +13,7 @@ class Functionality {
     } else if (operator == '-') {
       result = operand1 - operand2;
       return result;
-    } else if (operator == 'x') {
+    } else if (operator == '*') {
       result = operand1 * operand2;
       return result;
     } else if (operator == '/') {
