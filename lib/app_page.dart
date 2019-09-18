@@ -13,9 +13,10 @@ class AppPage extends StatefulWidget {
 class _AppPageState extends State<AppPage> {
   String userInput = '';
   String outputString = '0';
-  static double num1 = 0.0, num2 = 0.0;
-  static String operators = '';
-  bool isOperand1Entered = false;
+  static double operand1 = 0.0, operand2 = 0.0;
+  static String operatorChoice = '';
+  bool isOperand1Assigned = false;
+  bool isUserInputReseted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -83,9 +84,9 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                isOperand1Entered = true;
+                                isOperand1Assigned = true;
                                 userInput = '';
-                                operators = '+';
+                                operatorChoice = '+';
                               });
                             },
                           ),
@@ -94,9 +95,9 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                isOperand1Entered = true;
+                                isOperand1Assigned = true;
                                 userInput = '';
-                                operators = '-';
+                                operatorChoice = '-';
                               });
                             },
                           ),
@@ -105,9 +106,9 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                isOperand1Entered = true;
+                                isOperand1Assigned = true;
                                 userInput = '';
-                                operators = 'x';
+                                operatorChoice = 'x';
                               });
                             },
                           ),
@@ -116,9 +117,9 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                isOperand1Entered = true;
+                                isOperand1Assigned = true;
                                 userInput = '';
-                                operators = '/';
+                                operatorChoice = '/';
                               });
                             },
                           ),
@@ -132,11 +133,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '1';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -146,11 +151,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '2';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -160,11 +169,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '3';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -179,11 +192,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '4';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -193,11 +210,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '5';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -207,11 +228,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '6';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -226,11 +251,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '7';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -240,11 +269,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '8';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -254,11 +287,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '9';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -273,12 +310,12 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.redAccent,
                             clearFunction: () {
                               setState(() {
-                                num1 = 0.0;
-                                num2 = 0.0;
-                                operators = '';
+                                operand1 = 0.0;
+                                operand2 = 0.0;
+                                operatorChoice = '';
                                 userInput = '';
                                 outputString = '0';
-                                print('num1=$num1 num2=$num2');
+                                print('num1=$operand1 num2=$operand2');
                               });
                             },
                           ),
@@ -287,11 +324,15 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[900],
                             displayOperandFunction: () {
                               setState(() {
+                                if (!isUserInputReseted) {
+                                  userInput = '';
+                                  isUserInputReseted = true;
+                                }
                                 userInput += '0';
-                                if (!isOperand1Entered) {
-                                  num1 = double.parse(userInput);
+                                if (!isOperand1Assigned) {
+                                  operand1 = double.parse(userInput);
                                 } else {
-                                  num2 = double.parse(userInput);
+                                  operand2 = double.parse(userInput);
                                 }
                               });
                             },
@@ -301,21 +342,21 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.redAccent,
                             calculationFunction: () {
                               setState(() {
-                                // num2 = double.parse(userInput);
-
-                                userInput = '$num1 $operators $num2';
+                                userInput =
+                                    '$operand1 $operatorChoice $operand2';
                                 Functionality functionality = Functionality(
-                                    operand1: num1,
-                                    operand2: num2,
-                                    operator: operators);
+                                    operand1: operand1,
+                                    operand2: operand2,
+                                    operator: operatorChoice);
                                 double result =
                                     functionality.calculateFunction();
                                 print('result= $result');
                                 outputString = result.toString();
-                                isOperand1Entered = false;
+                                isOperand1Assigned = false;
+                                isUserInputReseted = false;
                                 result = 0.0;
-                                num1 = 0.0;
-                                num2 = 0.0;
+                                operand1 = 0.0;
+                                operand2 = 0.0;
                               });
                             },
                           )
