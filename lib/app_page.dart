@@ -13,8 +13,9 @@ class AppPage extends StatefulWidget {
 class _AppPageState extends State<AppPage> {
   String userInput = '';
   String outputString = '0';
-  static double num1 = 0, num2 = 0;
+  static double num1 = 0.0, num2 = 0.0;
   static String operators = '';
+  bool isOperand1Entered = false;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                num1 = double.parse(userInput);
+                                isOperand1Entered = true;
                                 userInput = '';
                                 operators = '+';
                               });
@@ -93,7 +94,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                num1 = double.parse(userInput);
+                                isOperand1Entered = true;
                                 userInput = '';
                                 operators = '-';
                               });
@@ -104,7 +105,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                num1 = double.parse(userInput);
+                                isOperand1Entered = true;
                                 userInput = '';
                                 operators = 'x';
                               });
@@ -115,7 +116,7 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.grey[800],
                             defineOperationFunction: () {
                               setState(() {
-                                num1 = double.parse(userInput);
+                                isOperand1Entered = true;
                                 userInput = '';
                                 operators = '/';
                               });
@@ -132,6 +133,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '1';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -141,6 +147,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '2';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -150,6 +161,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '3';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -164,6 +180,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '4';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -173,6 +194,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '5';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -182,6 +208,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '6';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -196,6 +227,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '7';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -205,6 +241,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '8';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -214,6 +255,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '9';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -222,9 +268,19 @@ class _AppPageState extends State<AppPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          EqualsButtonWidget(
-                            operator: FontAwesomeIcons.backspace,
-                            buttonColor: Colors.greenAccent,
+                          ClearButtonWidget(
+                            label: 'C',
+                            buttonColor: Colors.redAccent,
+                            clearFunction: () {
+                              setState(() {
+                                num1 = 0.0;
+                                num2 = 0.0;
+                                operators = '';
+                                userInput = '';
+                                outputString = '0';
+                                print('num1=$num1 num2=$num2');
+                              });
+                            },
                           ),
                           NumberButtonWidget(
                             label: '0',
@@ -232,6 +288,11 @@ class _AppPageState extends State<AppPage> {
                             displayOperandFunction: () {
                               setState(() {
                                 userInput += '0';
+                                if (!isOperand1Entered) {
+                                  num1 = double.parse(userInput);
+                                } else {
+                                  num2 = double.parse(userInput);
+                                }
                               });
                             },
                           ),
@@ -240,7 +301,8 @@ class _AppPageState extends State<AppPage> {
                             buttonColor: Colors.redAccent,
                             calculationFunction: () {
                               setState(() {
-                                num2 = double.parse(userInput);
+                                // num2 = double.parse(userInput);
+
                                 userInput = '$num1 $operators $num2';
                                 Functionality functionality = Functionality(
                                     operand1: num1,
@@ -250,6 +312,10 @@ class _AppPageState extends State<AppPage> {
                                     functionality.calculateFunction();
                                 print('result= $result');
                                 outputString = result.toString();
+                                isOperand1Entered = false;
+                                result = 0.0;
+                                num1 = 0.0;
+                                num2 = 0.0;
                               });
                             },
                           )
@@ -261,6 +327,35 @@ class _AppPageState extends State<AppPage> {
               ),
             ),
           ]),
+    );
+  }
+}
+
+class ClearButtonWidget extends StatelessWidget {
+  final String label;
+  final Color buttonColor;
+  final Function clearFunction;
+
+  ClearButtonWidget(
+      {@required this.label, this.buttonColor, this.clearFunction});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: FlatButton(
+          onPressed: clearFunction,
+          color: buttonColor,
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 40.0,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
     );
   }
 }
