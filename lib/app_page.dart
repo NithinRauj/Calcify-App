@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'number_button_widget.dart';
-import 'operator_button_widget.dart';
-import 'equals_button_widget.dart';
+import 'package:calcify/widgets/number_button_widget.dart';
+import 'package:calcify/widgets/operator_button_widget.dart';
+import 'package:calcify/widgets/equals_button_widget.dart';
+import 'package:calcify/widgets/clear_button_widget.dart';
 import 'functionality.dart';
 
 class AppPage extends StatefulWidget {
@@ -368,35 +369,6 @@ class _AppPageState extends State<AppPage> {
               ),
             ),
           ]),
-    );
-  }
-}
-
-class ClearButtonWidget extends StatelessWidget {
-  final String label;
-  final Color buttonColor;
-  final Function clearFunction;
-
-  ClearButtonWidget(
-      {@required this.label, this.buttonColor, this.clearFunction});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: FlatButton(
-          onPressed: clearFunction,
-          color: buttonColor,
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 40.0,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
     );
   }
 }
