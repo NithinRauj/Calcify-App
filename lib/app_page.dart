@@ -5,6 +5,7 @@ import 'package:calcify/widgets/operator_button_widget.dart';
 import 'package:calcify/widgets/equals_button_widget.dart';
 import 'package:calcify/widgets/clear_button_widget.dart';
 import 'functionality.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class AppPage extends StatefulWidget {
   @override
@@ -41,16 +42,20 @@ class _AppPageState extends State<AppPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
-                        Text(
+                        AutoSizeText(
                           userInput,
+                          maxLines: 1,
+                          overflowReplacement: Text('Overflow Error'),
                           style: TextStyle(
                             fontSize: 50.0,
                             fontWeight: FontWeight.w300,
                             color: Colors.white54,
                           ),
                         ),
-                        Text(
+                        AutoSizeText(
                           outputString,
+                          maxLines: 1,
+                          overflowReplacement: Text('Overflow Error'),
                           style: TextStyle(
                             fontSize: 70.0,
                             fontWeight: FontWeight.w600,
