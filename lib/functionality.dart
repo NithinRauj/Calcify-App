@@ -7,9 +7,7 @@ class Functionality {
 
   double calculateFunction() {
     double result;
-    if (operator == '')
-      return 0.0;
-    else if (operator == '+') {
+    if (operator == '+') {
       result = operand1 + operand2;
       return result;
     } else if (operator == '-') {
@@ -22,6 +20,6 @@ class Functionality {
       result = operand1 / operand2;
       return result;
     } else
-      return -1.0;
+      return 0.0;
   }
 }
